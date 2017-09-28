@@ -8,24 +8,24 @@ RSpec.describe "Ruby's True and False" do
   end
 
   it "treats true as truthy" do
-    expect( truth_value(true) ).to eq( __ )
+    expect( truth_value(true) ).to eq( true )
   end
 
   it "treats false as falsey" do
-    expect( truth_value(false) ).to eq( __ )
+    expect( truth_value(false) ).to eq( :false_stuff )
   end
 
   it "treats nil as falsey" do
-    expect( truth_value(nil) ).to eq( __ )
+    expect( truth_value(nil) ).to eq( :false_stuff )
   end
 
   it "treats everything else as truthy" do
-    expect( truth_value(1) ).to eq( __ )
-    expect( truth_value(0) ).to eq( __ )
-    expect( truth_value([]) ).to eq( __ )
-    expect( truth_value({}) ).to eq( __ )
-    expect( truth_value("Strings") ).to eq( __ )
-    expect( truth_value("") ).to eq( __ )
+    expect( truth_value(1) ).to eq( :true_stuff )
+    expect( truth_value(0) ).to eq( :true_stuff )
+    expect( truth_value([]) ).to eq( :true_stuff )
+    expect( truth_value({}) ).to eq( :true_stuff )
+    expect( truth_value("Strings") ).to eq( :true_stuff )
+    expect( truth_value("") ).to eq( :true_stuff )
   end
 
   # These are useful, if awkwardly named matchers

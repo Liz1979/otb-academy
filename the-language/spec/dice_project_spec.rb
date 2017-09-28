@@ -6,6 +6,27 @@
 #
 
 RSpec.describe "dice set" do
+
+  class DiceSet
+    attr_reader :values
+
+    def initialize()
+      @values = []
+    end
+
+    def roll(n)
+
+      @values = []
+
+      n.times do
+        diceResult = Random.rand(1..6)
+        @values << diceResult
+      end
+      
+    end
+
+  end
+
   it "can create a new sice set" do
     dice = DiceSet.new
     expect( dice ).not_to be_nil
