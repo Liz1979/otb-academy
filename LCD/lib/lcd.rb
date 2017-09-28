@@ -1,63 +1,87 @@
 class Lcd
     
     def initialize
-        @top
-        @middle
-        @bottom
+        @top = []
+        @middle = []
+        @bottom = []
     end
 
+    def print_out(num)
+       return_numbers(num)
+       p @top.join
+       p @middle.join
+       p @bottom.join
+       output
+    end
 
-    def number(n)
-        if n == 1
-        t = [nil, "/", "|", nil]
-        m = [nil, nil, "|", nil]
-        b = [nil, "_", "|", "_"]
+    def return_numbers(n)
+        arr = n.to_s.chars.map(&:to_i)
+        arr.each do |x|
+
+        number_case(x)   
+       end 
+    end
+
+    def number_case(n)
+        p n
+        case n.to_i
+        when 1
+        @top << [" ", " ", " ", " "].join
+        @middle << [" ", " ", "|", " "].join
+        @bottom <<[" ", " ", "|", " "].join
        
-        elsif n == 2
-        t = [nil, "_", "_", nil]
-        m = [nil, "_", "_", "|"]
-        b = ["|", "_", "_", nil]
+        when 2
+        @top << [" ", "_", "_", " "].join
+        @middle << [" ", "_", "_", "|"] .join
+        @bottom << ["|", "_", "_", " "] .join
 
-        elsif n == 3
-        t = [nil, "_", "_", nil]
-        m = [nil, "_", "_", "|"]
-        b = [nil, "_", "_", "|"]  
+        when  3
+        @top << [" ", "_", "_", " "].join
+        @middle << [" ", "_", "_", "|"].join
+        @bottom << [" ", "_", "_", "|"].join
 
-        elsif n == 4
-        t = [nil, "/", nil, "|"]
-        m = ["|", "_", "_", "|"]
-        b = [nil, nil, nil, "|"]
+        when 4
+        @top << [" ", " ", " ", " "].join
+        @middle << ["|", "_", "_", "|"].join
+        @bottom << [" ", " ", " ", "|"].join
 
-        elsif n == 5
-        t = [nil, "_", "_", nil]
-        m = ["|", "_", "_", nil]
-        b = [nil, "_", "_", "|"]
+        when 5
+        @top << [" ", "_", "_", " "].join
+        @middle << ["|", "_", "_", " "].join
+        @bottom << [" ", "_", "_", "|"].join
 
-        elsif n == 6
-        t = [nil, "_", "_", nil]
-        m = ["|", "_", "_", nil]
-        b = ["|", "_", "_", "|"]
+        when 6
+        @top << [" ", "_", "_", " "].join
+        @middle << ["|", "_", "_", " "].join
+        @bottom << ["|", "_", "_", "|"].join
 
-        elsif n == 7
-        t = [nil, "_", "_", nil]
-        m = [nil, nil, nil, "|"]  
-        b = [nil, nil, nil, "|"] 
+        when 7
+        @top << [" ", "_", "_", " "].join
+        @middle << [" ", " ", " ", "|"].join
+        @bottom << [" ", " ", " ", "|"]. join
 
-        elsif n == 8
-        t = [nil, "_", "_", nil]
-        m = ["|", "_", "_", "|"]
-        b = ["|", "_", "_", "|"]
+        when 8
+        @top << [" ", "_", "_", " "].join
+        @middle << ["|", "_", "_", "|"].join
+        @bottom << ["|", "_", "_", "|"].join
 
-        elsif n == 9
-        t = [nil, "_", "_", nil]
-        m = ["|", "_", "_", "|"]
-        b = [nil, "_", "_", "|"]
+        when 9
+        @top << [" ", "_", "_", " "].join
+        @middle << ["|", "_", "_", "|"].join
+        @bottom << [" ", "_", "_", "|"].join
 
-        elsif n == 0
-        t = [nil, "_", "_", nil]
-        m = ["|", nil, nil, "|"]
-        b = ["|", "_", "_", "|"]
+        when 0
+        @top << [" ", "_", "_", " "].join
+        @middle << ["|", " ", " ", "|"].join
+        @bottom << ["|", "_", "_", "|"].join
+        else
+            puts = "That is not a number"
+        end
     end
-end
+
+    def output 
+       return  [@top.join,@middle.join,@bottom.join].join("\n")
+
+    end
 
 end

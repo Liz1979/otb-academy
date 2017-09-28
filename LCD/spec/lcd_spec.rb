@@ -1,12 +1,12 @@
-require 'lcd'
+require 'lcd.rb'
 
-describe "output a number" do
+RSpec.describe "output a number" do
 
-  let(:Lcd) { Lcd.new }
+  let(:lcd) { Lcd.new }
 
   it "can create a 1" do
-    expected = "\n|\n|"
-    expect( Lcd.number(1) ).to eq( expected )
+    expected = " "
+    expect( lcd.print_out(1234567890) ).to eq( expected )
   end
 
 
